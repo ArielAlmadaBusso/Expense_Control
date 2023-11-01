@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Presupuestos</title>
+</head>
+<body onload="cargarApp()">
+    <div class="cabecero">
+        <div class="presupuesto">
+            <div class="presupuesto_titulo">
+                Presupuesto Dispinible:
+            </div>
+            <div class="presupuesto_valor" id="presupuesto"></div>
+            <div class="presupuesto_ingreso limpiarEstilos">
+                <div class="presupuesto_ingreso--texto"> ingresos</div>
+                <div class="derecha">
+                    <div class="presupuesto_ingreso--valor" id='ingresos'></div>
+                    <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
+                </div>
+            </div>
+            <div class="presupuesto_egreso limpiarEstilos">
+                <div class="presupuesto_egreso--texto">Egreso</div>
+                <div class="derecha limpiarEstilos">
+                    <div class="presupuesto_egreso--valor" id='egresos'></div>
+                    <div class="presupuesto_egreso--porcentaje" id='porcentaje'></div>
+                </div>
+            </div>   
+        </div>
+    </div>
+    <!-- con la opcion onsubmit = return false , lo que sucede es que no envia la informacion a un servidor-->
+    <form onsubmit="return false;" id="forma">
+        <div class="agregar">
+            <div class="agregar_contenedor">
+                <select name="" id="tipo" class="agregar_tipo">
+                    <option value="ingreso" selected> +</option>
+                    <option value="egreso">-</option>
+                </select>
+                <input type="text" class="agregar_descripcion" placeholder="Agregar Descripcion" id="descripcion">
+                <input type="number" class="agregar_valor" placeholder="VALOR" id="valor" step="any">
+                <button class="agregar_btn" onclick="agregarDato()">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="contendor limpiarEstilos">
+        <div class="ingreso">
+            <h2 class="ingreso_titulo">INGRESOS</h2>
+            <div id="lista-ingresos">
+            </div>
+        </div>
+        <div class="egreso">
+            <h2 class="egreso_titulo">EGRESOS</h2>
+            <div id="lista-egresos">  
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/Dato.js"></script>
+    <script src="JS/Ingreso.js"></script>
+    <script src="JS/Egreso.js"></script>
+    <script src="JS/app.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
